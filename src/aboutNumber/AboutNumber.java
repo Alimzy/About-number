@@ -1,6 +1,8 @@
-public class Main {
+package aboutNumber;
+
+public class AboutNumber {
     public static void main(String[] args) {
-        int number = 5;
+        int number = 21;
 
         if(isEven(number)) System.out.println("This number is an even number");
         if(isOdd(number)) System.out.println("This number is an odd number");
@@ -10,11 +12,13 @@ public class Main {
         if(isCube(number)) System.out.println("This number is a cube number");
         if(isPerfectNumber(number)) System.out.println("This number is a perfect number");
         if(isAbundantNumber(number)) System.out.println("This number is an abundant number");
+        if(isArmStrongNumber(number)) System.out.println("This number is an armstrong number");
         if(isDeficientNumber(number)) System.out.println("This number is a Deficient number");
         if(isPositive(number)) System.out.println("This number is a positive number");
         if(isNegative(number)) System.out.println("This number is a Negative number");
         if(isPalindrome(number)) System.out.println("This number is a Palindrome number");
         if(isBinary(number)) System.out.println("This number is a Binary number");
+        if(isFibonacci(number)) System.out.println("This number is a Fibonacci number");
         System.out.println(digitalSum(number));
         System.out.println(factorialOf(number));
     }
@@ -23,7 +27,7 @@ public class Main {
         return number > 0;
     }
 
-    public static boolean isNegative(int number){
+    public  static boolean isNegative(int number){
         return number < 0;
     }
 
@@ -150,7 +154,7 @@ public class Main {
         int digit = number;
         int mySum = 0;
         int numberLength = digits.length();
-        while (digit!= 0){
+        while (digit > 0){
             int lastDigit = digit % 10;
             int exponential = (int) Math.pow(lastDigit, numberLength);
             mySum += exponential;
@@ -178,6 +182,32 @@ public class Main {
 
         return factorial;
     }
+
+    public static boolean isTriangular(int number){
+        int sum = 0;
+        for(int count = 0; count <= number; count++){
+            sum += count;
+            if (sum == number) return true;
+        }
+        return false;
+    }
+
+
+    public static boolean isFibonacci(int number){
+        int firstNumber = 0;
+        int secondNumber = 1;
+       int sum = 0;
+        for(int count = 0;count <= number;count++){
+             sum = firstNumber + secondNumber;
+            if (sum == number) return true;
+        firstNumber = secondNumber;
+        secondNumber = sum;
+        }
+        return false;
+    }
+
+
+
 
 
 
